@@ -1,0 +1,15 @@
+<h3>
+    ID : <%= @discussion.id %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    User : <%= get_user(@discussion.user_id).fname %>
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    Region : <%= @discussion.region_id %>
+</h3>
+<h3>Content : <%= @discussion.content %></h3>
+<p>Number of Answers : <%= @discussion.count %> </p>
+<%= button_to "Delete", discussion_path(@discussion), method: :delete %>
+<hr>
+<h1>Answers</h1>
+<%= render "answers/answers" %>
+<hr>
+<%= render "answers/form" %>

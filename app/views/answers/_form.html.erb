@@ -1,0 +1,17 @@
+<%= form_for([@discussion, @discussion.answers.build]) do |form| %>
+    <div>
+        <%= form.label :discussion_id %><br>
+        <%= form.text_area :discussion_id %>
+    </div>
+    <div>
+        <%= form.label :user_id %><br>
+        <%= form.text_area :user_id, placeholder: "Type here ..." %>
+    </div>
+    <div>
+        <%= form.label :content %><br>
+        <%= form.text_area :content, placeholder: "Submit your answer ..." %>
+    </div>
+    <div>
+        <%= form.submit "Submit" %>
+    </div>
+<% end %>

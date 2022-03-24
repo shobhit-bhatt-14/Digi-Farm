@@ -1,0 +1,19 @@
+<h2>Edit Query</h2>
+
+<%= form_with model: @discussion, url: discussion_path(@discussion), method: :patch do |form| %>
+    <p>
+        <%= form.label :user_id %><br>
+        <%= form.text_area :user_id, placeholder: "Type here ..." %>
+    </p>
+    <p>
+        <%= form.label :region %><br>
+        <%= form.text_area :region, placeholder: "Type here ..." %>
+    </p>
+    <p>
+        <%= form.label :content %><br>
+        <%= form.text_area :content, placeholder: "Type here ..." %>
+    </p>
+    <p>
+        <%= form.submit "Submit" %>
+    </p>
+<% end %>

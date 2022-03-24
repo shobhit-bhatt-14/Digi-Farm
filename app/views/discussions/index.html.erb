@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row d-flex justify-content-around">
+    <div class="col-7 my-5">
+      <p class="d-flex justify-content-between">
+        <span class="h4 fw-bold">Discussions</span>
+        <span class="col-5">
+        <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), html: {class: "border-secondary border-3 form-select form-select-sm", onChange: "change_location(:region_id);"} %>
+        </span>
+      </p>
+      <br>
+      <ul class="list-group">
+        <% @discussions.each do |discussion| %>
+            <li class="list-group-item border-2 border-dark text-start">❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="border border-dark border-3 col-4 py-5 rounded">
+        <%= render "discussions/new" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="h4 fw-bold">Ask a Query</div>
+<br>
+<%= form_with model: @discussion, url: discussions_path, html: {class: ""} do |form| %>
+    <div class="text-start">
+        <%= form.label :user_id, class: "form-label ms-1" %><br>
+        <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select" } %>
+    </div>
+    <br>
+    <div class="text-start">
+        <%= form.label :region, class: "form-label ms-1" %><br>
+        <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, @location), {}, { class: "form-select" } %>
+    </div>
+    <br>
+    <div class="text-start">
+        <%= form.label :content, class: "form-label ms-1" %><br>
+        <%= form.text_area :content, class: "form-control", placeholder: "Type here ..." %>
+    </div>
+    <br>
+    <div>
+        <%= form.submit "Submit", class: "btn btn-primary fw-bold" %>
+    </div>
+<% end %>

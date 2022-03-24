@@ -1,0 +1,8 @@
+<ul>
+<% @discussion.answers.each do |answer| %>
+    <li>
+        <h4><%= answer.content %></h4>
+        <h5>&mdash; <%= get_user(answer.user_id).fname %></h5>
+    </li>
+<% end %>
+</ul>
