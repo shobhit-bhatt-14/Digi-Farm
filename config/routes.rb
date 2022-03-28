@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'feeds/index'
   resources :feeds
   resources :notifications
   resources :messages

@@ -1,6 +1,4 @@
 class DiscussionsController < ApplicationController
-  helper_method :get_user, :change_location
-
   def index
     @discussions = Discussion.all
     @regions = Region.all
@@ -18,10 +16,6 @@ class DiscussionsController < ApplicationController
   end
 
   def show
-    def get_user userId
-      return User.find(userId)
-    end
-
     @discussion = Discussion.find(params[:id])
     @regions = Region.all
     @users = User.all
