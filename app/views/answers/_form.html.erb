@@ -1,17 +1,17 @@
-<%= form_for([@discussion, @discussion.answers.build]) do |form| %>
-    <div>
-        <%= form.label :discussion_id %><br>
-        <%= form.text_area :discussion_id %>
-    </div>
-    <div>
-        <%= form.label :user_id %><br>
-        <%= form.text_area :user_id, placeholder: "Type here ..." %>
-    </div>
-    <div>
-        <%= form.label :content %><br>
-        <%= form.text_area :content, placeholder: "Submit your answer ..." %>
-    </div>
-    <div>
-        <%= form.submit "Submit" %>
-    </div>
-<% end %>
+<div class="d-flex justify-content-center">
+    <%= form_for([@discussion, @discussion.answers.build], html: { class: "col-11 d-flex justify-content-around align-items-end" }) do |form| %>
+        <div class="text-start">
+            <%= form.label :user_id, class: "form-label ms-1" %><br>
+            <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
+        </div>
+        <br />
+        <div class="text-start">
+            <%= form.label :content, class: "form-label ms-1" %><br>
+            <%= form.text_area :content, rows: 1, cols: 50, class: "form-control border-secondary", placeholder: "Add your answer ..." %>
+        </div>
+        <br />
+        <div>
+            <%= form.submit "Submit", class: "btn btn-primary fw-bold" %>
+        </div>
+    <% end %>
+</div>

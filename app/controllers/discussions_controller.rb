@@ -23,6 +23,10 @@ class DiscussionsController < ApplicationController
     end
 
     @discussion = Discussion.find(params[:id])
+    @regions = Region.all
+    @users = User.all
+
+    @location = @discussion.region_id
 
     # Array.wrap()
     @answers = Answer.where(discussion_id: params[:id])
@@ -34,9 +38,7 @@ class DiscussionsController < ApplicationController
   end
 
   def create
-    # @answer = Answer.new(params["answer"].permit(:user_id, :content, :discussion_id))
     # Rails.logger("Answer", @answer)
-    # params["discussion"].permit(:user_id, :region, :content)
 
     @discussion = Discussion.new(discussion_params)
 

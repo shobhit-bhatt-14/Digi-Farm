@@ -1,4 +1,4 @@
-<div class="col-3 d-flex flex-column flex-shrink-0 py-3 text-center text-white bg-dark position-static">
+<div class="col-3 d-flex flex-column flex-shrink-0 py-3 text-center text-white bg-dark position-fixed" style="height: 100% !important; top: 0; left: 0;">
   <a href="/" class="d-flex text-white text-decoration-none">
     <span class="fs-4 mx-auto">Digi Farm</span>
   </a>
@@ -6,7 +6,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <br>
     <li class="nav-item">
-      <a href="#" class="nav-link text-white">
+      <a href="/feeds" class="nav-link text-white active">
         Feeds
       </a>
     </li>
@@ -24,9 +24,10 @@
     </li>
     <br>
     <li class="nav-item">
-      <a href="/discussions" class="nav-link text-white active">
+      <!-- <a href="/discussions" class="nav-link text-white" >
         Discussions
-      </a>
+      </a> -->
+      <%= link_to "Discussions", discussions_path, class: "nav-link text-white" %>
     </li>
     <br>
     <li class="nav-item">

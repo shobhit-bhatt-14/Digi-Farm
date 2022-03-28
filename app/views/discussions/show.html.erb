@@ -1,15 +1,26 @@
-<h3>
-    ID : <%= @discussion.id %>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    User : <%= get_user(@discussion.user_id).fname %>
-    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-    Region : <%= @discussion.region_id %>
-</h3>
-<h3>Content : <%= @discussion.content %></h3>
-<p>Number of Answers : <%= @discussion.count %> </p>
-<%= button_to "Delete", discussion_path(@discussion), method: :delete %>
-<hr>
-<h1>Answers</h1>
-<%= render "answers/answers" %>
-<hr>
-<%= render "answers/form" %>
+<div class="row d-flex justify-content-around">
+  <div class="col-8 my-5">
+    <div class="text-start">
+      <div class="h4">❇️&emsp;<%= @discussion.content %></div>
+      <p class="text-muted ps-2">
+        &emsp;&emsp;&emsp;&mdash; by <%= get_user(@discussion.user_id).fname %>
+      </p>
+    </div>
+    <div class="d-flex justify-content-around fs-6">
+      <span>Answers : <strong><%= @discussion.count %></strong></span>
+      <%= button_to "Delete Discussion", discussion_path(@discussion), { method: :delete, class: "btn btn-danger btn-sm" } %>
+    </div>
+    <br>
+    <hr class="pt-1">
+    <%= render "answers/answers" %>
+    <hr class="pt-1" />
+    <br>
+    <%= render "answers/form" %>
+  </div>
+  <div
+    class="border border-dark border-3 col-3 py-5 rounded position-fixed"
+    style="height: 100% !important; top: 0; right: 0"
+  >
+    <%= render "discussions/new" %>
+  </div>
+</div>
