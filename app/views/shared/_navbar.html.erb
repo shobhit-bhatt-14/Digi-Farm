@@ -6,40 +6,27 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <br>
     <li class="nav-item">
-      <a href="/feeds" class="nav-link text-white active">
-        Feeds
-      </a>
+      <%= active_link_to "Feeds", feeds_path %>
     </li>
     <br>
     <li class="nav-item">
-      <a href="#" class="nav-link text-white">
-        Notifications
-      </a>
+      <%= active_link_to "Notifications", notifications_path %>
     </li>
     <br>
     <li class="nav-item">
-      <a href="#" class="nav-link text-white">
-        Messages
-      </a>
+      <%= active_link_to "Messages", messages_path %>
     </li>
     <br>
     <li class="nav-item">
-      <!-- <a href="/discussions" class="nav-link text-white" >
-        Discussions
-      </a> -->
-      <%= link_to "Discussions", discussions_path, class: "nav-link text-white" %>
+      <%= active_link_to "Discussions", discussions_path %>
     </li>
     <br>
     <li class="nav-item">
-      <a href="#" class="nav-link text-white">
-        Info Hub
-      </a>
+      <%= active_link_to "Info Hub", infohubs_path %>
     </li>
     <br>
     <li class="nav-item">
-      <a href="#" class="nav-link text-white">
-        Profile
-      </a>
+      <%= active_link_to "Profile", profiles_path %>
     </li>
     <br>
   </ul>
