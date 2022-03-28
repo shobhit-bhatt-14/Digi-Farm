@@ -1,0 +1,28 @@
+<ul class="list-group">
+  <% @posts.each do |post| %>
+    <li class="list-group-item border border-dark p-0">
+        <div class="d-flex border-bottom border-dark m-0 p-2">
+            <%= image_tag("shobhit.jpg", size: "50", class: "rounded-circle") %>
+            <div class="ps-4">
+                <span class="fw-bold">
+                    <% user = get_user post.user_id %>
+                    <%= user.fname + " " + user.lname %>
+                </span>
+                <br />
+                <span class="text-muted">
+                    <%= post.created_at.strftime("%d/%m/%Y %I:%M %p") %>
+                </span>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center p-2">
+            <%= post.content %>
+        </div>
+        <div class="d-flex justify-content-evenly p-2 border-top border-dark">
+            <%= button_tag "✌️ Good", { class: "btn btn-primary btn-sm fw-bold" }  %>
+            <%= button_tag "💬 Comments", { class: "btn btn-secondary btn-sm fw-bold" }  %>
+            <%= button_tag "⏩ Share", { class: "btn btn-dark btn-sm fw-bold" }  %>
+        </div>
+    </li>
+    <br />
+  <% end %>
+</ul>
