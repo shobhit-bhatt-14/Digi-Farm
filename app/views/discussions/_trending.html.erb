@@ -1,1 +1,12 @@
-<h1>Discussions#trending</h1>
+<div class="h4 fw-bold">Trending on Discussion</div>
+<br />
+<div class="container border border-secondary border-3 pt-4 fw-bold">
+  <ul class="text-start p-0" style="list-style-type: '#'">
+    <% @discussions.each do |discussion| %>
+        <li>
+            &ensp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %>
+        </li>
+        <br />
+    <% end %>
+  </ul>
+</div>
