@@ -1,5 +1,5 @@
 <div class="col-12">
-    <%= form_for([@discussion, @discussion.answers.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
+    <%= form_for([@post, @post.comments.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
         <div class="text-start">
             <%= form.label :user_id, class: "form-label ms-1" %><br>
             <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
@@ -7,7 +7,7 @@
         <br />
         <div class="text-start">
             <%= form.label :content, class: "form-label ms-1" %><br>
-            <%= form.text_area :content, rows: 1, cols: 50, class: "form-control border-secondary", placeholder: "Add your answer ..." %>
+            <%= form.text_area :content, rows: 1, cols: 50, class: "form-control border-secondary", placeholder: "Add your comment ..." %>
         </div>
         <br />
         <div>

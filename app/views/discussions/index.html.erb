@@ -9,7 +9,8 @@
     <br>
     <ul class="list-group">
       <% @discussions.each do |discussion| %>
-          <li class="list-group-item border-2 border-dark text-start">❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %></li>
+          <li class="list-group-item border-2 border-dark text-start rounded shadow">❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %></li>
+          <br />
       <% end %>
     </ul>
   </div>
