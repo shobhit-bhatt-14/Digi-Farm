@@ -1,12 +1,4 @@
 class AnswersController < ApplicationController
-    helper_method :get_user
-
-    def index
-        def get_user userId
-            return User.find(userId)
-        end
-    end
-
     def create
         @discussion = Discussion.find(params[:discussion_id])
         @answer = @discussion.answers.create(answer_params)

@@ -9,7 +9,6 @@ class DiscussionsController < ApplicationController
       @location = loc
     end
 
-
     # respond_to do |format|
     #   format.html { render @discussions }
     # end
