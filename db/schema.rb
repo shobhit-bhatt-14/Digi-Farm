@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_28_115254) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_29_091440) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -19,6 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_115254) do
     t.datetime "updated_at", null: false
     t.index ["discussion_id"], name: "index_answers_on_discussion_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "feed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feed_id"], name: "index_comments_on_feed_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "connections", force: :cascade do |t|
@@ -40,13 +50,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_115254) do
     t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "feeds", force: :cascade do |t|
     t.text "content"
     t.integer "count", default: 0
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -66,8 +76,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_28_115254) do
 
   add_foreign_key "answers", "discussions"
   add_foreign_key "answers", "users"
+  add_foreign_key "comments", "feeds"
+  add_foreign_key "comments", "users"
   add_foreign_key "connections", "users"
   add_foreign_key "discussions", "regions"
   add_foreign_key "discussions", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "feeds", "users"
 end
