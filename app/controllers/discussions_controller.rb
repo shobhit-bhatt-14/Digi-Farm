@@ -22,8 +22,6 @@ class DiscussionsController < ApplicationController
     @location = @discussion.region_id
 
     # Array.wrap()
-    @answers = Answer.where(discussion_id: params[:id])
-    @answer = Answer.new
   end
 
   def new

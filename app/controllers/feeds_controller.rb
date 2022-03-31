@@ -9,7 +9,6 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
 
-    @comments = Comment.where(feed_id: params[:id])
-    @comment = Comment.new
+    @users = User.all
   end
 end
