@@ -1,5 +1,6 @@
 <div class="col-12">
-    <%= form_for([@feed, @feed.comments.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
+    <% postMake = defined?(post) ? post : @feed %>
+    <%= form_for([postMake, postMake.comments.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
         <div class="text-start">
             <%= form.label :user_id, class: "form-label ms-1" %><br>
             <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
