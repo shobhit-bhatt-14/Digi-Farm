@@ -3,7 +3,8 @@ class FeedsController < ApplicationController
     @discussions = Discussion.limit(5).order("count DESC")
 
     @feeds = Feed.all
-    # @feed = Feed.find(params[:id])
+
+    @users = User.all
   end
 
   def show

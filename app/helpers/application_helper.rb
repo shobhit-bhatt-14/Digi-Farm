@@ -6,4 +6,8 @@ module ApplicationHelper
     def get_user userId
         return User.find(userId)
     end
+
+    def get_post postId
+        return Feed.find(postId)
+    end
 end
