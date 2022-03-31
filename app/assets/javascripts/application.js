@@ -1,3 +1,3 @@
-function openComments() {
-    $("#commentForm").toggleClass("hide");
+function openCommentForm(ele_id) {
+    document.getElementById(ele_id).classList.toggle("hide");
 }
