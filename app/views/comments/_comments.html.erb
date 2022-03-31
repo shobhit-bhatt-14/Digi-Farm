@@ -1,2 +1,21 @@
-<h1>Comments#comments</h1>
-<p>Find me in app/views/comments/comments.html.erb</p>
+<ul class="list-group w-100">
+    <% @feed.comments.each do |comment| %>
+    <li class="d-flex justify-content-evenly align-items-center border border-secondary text-center h6 text-dark rounded shadow p-3">
+        <div class="me-2 col-8 text-start">
+            <%= comment.content %>
+            <p class="fw-normal text-muted ps-2 pt-1">
+                &mdash; by <%= get_user(comment.user_id).fname %>
+            </p>
+        </div>
+        <div class="ms-2 col-3">
+            <%= button_to "Delete", [@feed, comment], { method: :delete, class: "btn btn-danger btn-sm" } %>
+        </div>
+    </li>
+    <br />
+    <% end %>
+</ul>
+<br />
+<div>
+    <%= render "comments/form" %>
+</div>
+  

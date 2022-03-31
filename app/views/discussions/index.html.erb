@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-around">
-  <div class="col-8 my-5">
+  <div class="col-8 my-5 px-lg-5">
     <p class="d-flex justify-content-between">
       <span class="h4 fw-bold">Discussions</span>
       <span class="col-5">
@@ -7,7 +7,7 @@
       </span>
     </p>
     <br>
-    <ul class="list-group">
+    <ul class="list-group px-lg-5">
       <% @discussions.each do |discussion| %>
           <li class="list-group-item border-2 border-dark text-start rounded shadow">❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %></li>
           <br />
