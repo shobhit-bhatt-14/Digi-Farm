@@ -18,11 +18,11 @@
             <%= post.content %>
         <% end %>
         <div class="d-flex justify-content-evenly p-2 border-top border-dark">
-            <%= button_tag "✌️ Good", { class: "btn btn-outline-primary btn-sm fw-bold" }  %>
+            <%= button_tag "✌️ Good", { class: "btn btn-outline-primary btn-sm fw-bold", id: "reaction-button-#{index}", onclick: "toggleReactionButton('reaction-button-#{index}')" }  %>
             <%= button_tag "💬 Comments", { class: "btn btn-outline-primary btn-sm fw-bold", onclick: "openCommentForm('comment-form-#{index}')" } %>
-            <%= button_tag "⏩ Share", { class: "btn btn-outline-dark btn-sm fw-bold" }  %>
+            <%= mail_to "", "⏩ Share", subject: "I wanted you to see this post", body: "Check out this post #{request.original_url}/#{post.id}.\n", class: "btn btn-outline-dark btn-sm fw-bold" %>
         </div>
-        <%= content_tag(:div, id: "comment-form-#{index}", class: "hide") do %>
+        <%= content_tag(:div, id: "comment-form-#{index}", class: "border-top border-dark p-2 hide") do %>
             <%= render "comments/form", post: post %>
         <% end %>
     </li>
