@@ -11,6 +11,8 @@ module DigiFarm
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    config.time_zone = "New Delhi"
+
     # config.logger = Logger.new(STDOUT)
     # config.logger = Log4r::Logger.new("Application Log")
 
