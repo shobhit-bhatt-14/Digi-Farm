@@ -1,4 +1,6 @@
-<div class="col-12">
+<div class="col-12 border border-dark rounded shadow p-3">
+    <div class="h5 text-center">New Post</div>
+    <hr />
     <%= form_with model: @feed, html: { class: "d-flex justify-content-between align-items-end" } do |form| %>
         <div class="text-start">
             <%= form.label :user_id, class: "form-label ms-1" %><br>
