@@ -3,7 +3,7 @@
     <p class="d-flex justify-content-between">
       <span class="h4 fw-bold">Discussions</span>
       <span class="col-5">
-      <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, :region_id), html: { class: "border-secondary border-3 form-select form-select-sm", id: "discussion-region-selector" } %>
+      <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), html: { class: "border-secondary border-3 form-select form-select-sm", id: "discussion-region-selector" } %>
       </span>
     </p>
     <br>
