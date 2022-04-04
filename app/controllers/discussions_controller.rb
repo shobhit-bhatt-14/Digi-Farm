@@ -5,10 +5,7 @@ class DiscussionsController < ApplicationController
     @users = User.all
 
     @location = 35
-    def change_location loc
-      @location = loc
-    end
-
+    
     # respond_to do |format|
     #   format.html { render @discussions }
     # end
@@ -20,7 +17,6 @@ class DiscussionsController < ApplicationController
     @users = User.all
 
     @location = @discussion.region_id
-
     # Array.wrap()
   end
 

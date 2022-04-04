@@ -19,7 +19,7 @@
                 <%= @feed.content %>
             </div>
             <div class="d-flex justify-content-evenly p-2 border-top border-dark">
-                <%= button_tag "✌️ Good", { class: "btn btn-outline-primary btn-sm fw-bold" }  %>
+                <%= button_tag "✌️ Good", { class: "btn btn-outline-primary btn-sm fw-bold", id: "reaction-button-#{@feed.id}", onclick: "toggleReactionButton('reaction-button-#{@feed.id}')" }  %>
                 <%= button_tag "⏩ Share", { class: "btn btn-outline-dark btn-sm fw-bold" }  %>
             </div>
         </div>

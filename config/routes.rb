@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'infohub/index'
   root to: redirect("/feeds")
 
   resources :feeds do
@@ -13,6 +14,6 @@ Rails.application.routes.draw do
     resources :regions
   end
 
-  resources :infohubs
+  resource :infohub
   resources :profiles
 end
