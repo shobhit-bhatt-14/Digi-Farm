@@ -15,6 +15,9 @@ module DigiFarm
 
     # config.logger = Logger.new(STDOUT)
     # config.logger = Log4r::Logger.new("Application Log")
+    # Rails.logger = Logger.new(STDOUT)
+    # Rails.logger = Log4r::Logger.new("Application Log")
+
 
     # Configuration for the application, engines, and railties goes here.
     #
