@@ -1,3 +1,17 @@
-<%= form_for :infohub do |f| %>
-    <%= f.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+<%= form_for :infohub, html: { class: "col-6 mx-auto" } do |f| %>
+    <div class="text-start">
+        <%= form.label :region_id, class: "form-label ms-1" %><br>
+        <%= f.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+    </div>
+    <div class="text-start">
+        <%= form.label :region_id, class: "form-label ms-1" %><br>
+        <%= f.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+    </div>
+    <div>
+        <%= f.submit "Get Details" class: "btn btn-primary fw-bold" %>
+    </div>
 <% end %>
+
+
+
+crop = CropProduction.insert_all([{ year: "1950-51" }, { year: "1960-61" }, { year: "1970-71" }, { year: "1980-81" }, { year: "1990-91" }, { year: "2000-01" }, { year: "2010-11" }, { year: "2011-12" }, { year: "2012-13" }, { year: "2013-14" }, { year: "2014-15" }, { year: "2015-16" }, { year: "2016-17" }, { year: "2017-18" }, { year: "2018-19" }, { year: "2019-20" },])

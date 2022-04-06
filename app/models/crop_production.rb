@@ -1,0 +1,2 @@
+class CropProduction < ApplicationRecord
+end

@@ -1,14 +1,17 @@
 class DiscussionsController < ApplicationController
   def index
-    @discussions = Discussion.all
     @regions = Region.all
     @users = User.all
 
-    @location = 35
-    
-    # respond_to do |format|
-    #   format.html { render @discussions }
-    # end
+    if (params[:region_id] && discussions = Discussion.where(region_id: params[:region_id]))
+      @discussions = discussions
+    else
+      @discussions = Discussion.all
+    end
+
+    respond_to do |format|
+      format.html { render discussions }
+    end
   end
 
   def show
@@ -25,8 +28,6 @@ class DiscussionsController < ApplicationController
   end
 
   def create
-    # Rails.logger("Answer", @answer)
-
     @discussion = Discussion.new(discussion_params)
 
     if @discussion.save

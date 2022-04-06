@@ -3,16 +3,12 @@
     <p class="d-flex justify-content-between">
       <span class="h4 fw-bold">Discussions</span>
       <span class="col-5">
-      <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), html: { class: "border-secondary border-3 form-select form-select-sm", id: "discussion-region-selector" } %>
+          <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, :region_id), { class: "border-secondary border-3 form-select form-select-sm", onchange: "changeRegion(Number(this.value))" } %>
       </span>
     </p>
     <br>
-    <ul class="list-group px-lg-5">
-      <% @discussions.each do |discussion| %>
-          <li class="list-group-item border-2 border-dark text-start rounded shadow">❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %></li>
-          <br />
-      <% end %>
-    </ul>
+    <div id="let-see"></div>
+    <%= render "discussions/discussions" %>
   </div>
   <div class="border border-dark border-3 col-3 me-1 py-5 rounded position-fixed" style="height: 100% !important; top: 0; right: 0;">
       <%= render "discussions/new" %>
