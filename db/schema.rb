@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_06_171045) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_072625) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -40,9 +40,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_171045) do
   end
 
   create_table "crop_productions", force: :cascade do |t|
-    t.string "year"
-    t.string "crop"
-    t.float "value"
+    t.integer "crop_id", null: false
+    t.integer "year_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crop_id"], name: "index_crop_productions_on_crop_id"
+    t.index ["year_id"], name: "index_crop_productions_on_year_id"
+  end
+
+  create_table "crops", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,11 +89,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_171045) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "years", force: :cascade do |t|
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "answers", "discussions"
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "feeds"
   add_foreign_key "comments", "users"
   add_foreign_key "connections", "users"
+  add_foreign_key "crop_productions", "crops"
+  add_foreign_key "crop_productions", "years"
   add_foreign_key "discussions", "regions"
   add_foreign_key "discussions", "users"
   add_foreign_key "feeds", "users"
