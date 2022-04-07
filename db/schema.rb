@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_072625) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_07_073600) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_072625) do
   end
 
   create_table "crop_productions", force: :cascade do |t|
+    t.float "value"
     t.integer "crop_id", null: false
     t.integer "year_id", null: false
     t.datetime "created_at", null: false
