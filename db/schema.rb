@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_073600) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_08_084920) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -88,6 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_073600) do
     t.integer "count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "password_digest"
   end
 
   create_table "years", force: :cascade do |t|

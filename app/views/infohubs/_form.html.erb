@@ -1,13 +1,13 @@
-<%= form_for :infohub, html: { class: "col-6 mx-auto" } do |f| %>
-    <div class="text-start">
-        <%= form.label :region_id, class: "form-label ms-1" %><br>
-        <%= f.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+<%= form_with scope: "infohub", url: infohub_path, html: { class: "d-flex flex-wrap justify-content-around mx-auto" }, remote: true do |f| %>
+    <div class="text-start col-5">
+        <%= f.label :year_id, class: "form-label ms-1" %><br>
+        <%= f.select :year_id, options_for_select(@years.collect{ |y| [y.year, y.id] }), {}, { class: "form-select border-secondary" } %>
     </div>
-    <div class="text-start">
-        <%= form.label :region_id, class: "form-label ms-1" %><br>
-        <%= f.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+    <div class="text-start col-5">
+        <%= f.label :crop_id, class: "form-label ms-1" %><br>
+        <%= f.select :crop_id, options_for_select(@crops.collect{ |c| [c.name, c.id] }), {}, { class: "form-select border-secondary" } %>
     </div>
-    <div>
-        <%= f.submit "Get Details" class: "btn btn-primary fw-bold" %>
+    <div class="col-3 mt-4 mx-auto text-center">
+        <%= f.submit "Get Details", class: "btn btn-primary fw-bold" %>
     </div>
 <% end %>

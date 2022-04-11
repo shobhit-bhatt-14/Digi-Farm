@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'infohub/index'
-  root to: redirect("/feeds")
+  root to: "main#index"
+
+  get "sign_up", to: "registrations#new"
+  post "sign_up", to:"registrations#create"
 
   resources :feeds do
     resources :comments
