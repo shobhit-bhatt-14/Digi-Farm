@@ -1,7 +1,8 @@
-<div class="row d-flex justify-content-around">
-  <div class="col-8 my-5 px-lg-5">
+<div class="col-3"></div>
+<div class="col-9 d-flex justify-content-evenly">
+  <div class="col-8 my-5 px-5">
     <p class="d-flex justify-content-between">
-      <span class="h4 fw-bold">Discussions</span>
+      <span class="fs-4 fw-bold">Discussions</span>
       <span class="col-5">
           <%= select_tag :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, :region_id), { class: "border-secondary border-3 form-select form-select-sm", onchange: "changeRegion(Number(this.value))" } %>
       </span>
@@ -10,7 +11,8 @@
     <div id="let-see"></div>
     <%= render "discussions/discussions" %>
   </div>
-  <div class="border border-dark border-3 col-3 me-1 py-5 rounded position-fixed" style="height: 100% !important; top: 0; right: 0;">
+  <div class="col-4"></div>
+  <div class="border-start border-dark border-3 col-3 py-5 px-4 position-fixed" style="height: 100% !important; top: 0; right: 0;">
       <%= render "discussions/new" %>
   </div>
 </div>

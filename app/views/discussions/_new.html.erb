@@ -1,14 +1,11 @@
-<div class="h4 fw-bold">Ask a Query</div>
+<div class="fs-4 fw-bold">Ask a Query</div>
 <br>
-<%= form_with model: @discussion, url: discussions_path, html: {class: ""} do |form| %>
-    <div class="text-start">
-        <%= form.label :user_id, class: "form-label ms-1" %><br>
-        <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
-    </div>
+<%= form_with model: @discussion, url: discussions_path do |form| %>
+    <%= form.hidden_field :user_id, value: Current.user.id %>
     <br>
     <div class="text-start">
         <%= form.label :region_id, class: "form-label ms-1" %><br>
-        <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, @location), {}, { class: "form-select border-secondary" } %>
+        <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
     </div>
     <br>
     <div class="text-start">
@@ -16,7 +13,7 @@
         <%= form.text_area :content, class: "form-control border-secondary", placeholder: "Type here ..." %>
     </div>
     <br>
-    <div>
+    <div class="text-center">
         <%= form.submit "Submit", class: "btn btn-primary fw-bold" %>
     </div>
 <% end %>

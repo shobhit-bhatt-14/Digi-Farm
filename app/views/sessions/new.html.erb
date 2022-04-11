@@ -6,7 +6,7 @@
         <p class="fs-3">&nbsp;Welcome Back,</p>
         <hr />
         <br />
-        <%= form_with model: @user, url: root_path do |form| %>
+        <%= form_with model: @user, url: sign_in_path do |form| %>
             <div class="mb-3">
                 &nbsp;<%= form.label :email, class: "form-label fw-bold" %>
                 <%= form.text_field :email, placeholder: "Enter your email", class: "form-control" %>

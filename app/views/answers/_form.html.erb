@@ -1,13 +1,9 @@
-<div class="col-12">
+<div class="col-9 mx-auto">
     <%= form_for([@discussion, @discussion.answers.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
-        <div class="text-start">
-            <%= form.label :user_id, class: "form-label ms-1" %><br>
-            <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
-        </div>
+        <%= form.hidden_field :user_id, value: Current.user.id %>
         <br />
-        <div class="text-start">
-            <%= form.label :content, class: "form-label ms-1" %><br>
-            <%= form.text_area :content, rows: 1, cols: 50, class: "form-control border-secondary", placeholder: "Add your answer ..." %>
+        <div class="text-start col-9">
+            <%= form.text_field :content, class: "form-control border-secondary", placeholder: "Add your answer ..." %>
         </div>
         <br />
         <div>

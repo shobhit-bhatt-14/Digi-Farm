@@ -1,13 +1,15 @@
-<div class="row d-flex justify-content-around">
-    <div class="col-8 my-5 px-lg-5 text-start">
-        <p class="h4 fw-bold">Feeds</p>
+<div class="col-3"></div>
+<div class="col-8 d-flex justify-content-around">
+    <div class="col-9 my-5 px-5 d-flex flex-column align-items-center">
+        <!-- <p class="fs-4 fw-bold text-start col-12">Feeds</p> -->
         <br />
         <%= render "feeds/new" %>
         <br />
         <br />
         <%= render "feeds/feeds" %>
     </div>
-    <div class="col-3 border border-dark border-3 me-1 py-5 rounded position-fixed" style="height: 100% !important; top: 0; right: 0">
+    <div class="col-3"></div>
+    <div class="col-3 border-start border-dark border-3 me-1 py-5 px-4 position-fixed" style="height: 100% !important; top: 0; right: 0">
         <%= render "discussions/trending" %>
     </div>
 </div>

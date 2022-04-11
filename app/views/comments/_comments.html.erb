@@ -1,19 +1,25 @@
-<ul class="list-group w-100">
+<ul class="list-group">
     <% @feed.comments.each do |comment| %>
-    <li class="d-flex justify-content-evenly align-items-center border border-secondary text-center h6 text-dark rounded shadow p-3">
-        <div class="me-2 col-8 text-start">
+    <li class="d-flex justify-content-evenly align-items-center border border-secondary text-center fs-6 text-dark rounded shadow p-3">
+        <div class="col-10 text-start">
             <%= comment.content %>
-            <p class="fw-normal text-muted ps-2 pt-1">
-                &mdash; by <%= get_user(comment.user_id).fname %>
+            <p class="text-muted ps-2">
+                &mdash; by <%= get_user(comment.user_id).first_name %>
             </p>
         </div>
-        <div class="ms-2 col-3">
-            <%= button_to "Delete", [@feed, comment], { method: :delete, class: "btn btn-danger btn-sm" } %>
-        </div>
+        <% if comment.user_id == Current.user.id %>
+            <div class="col-2">
+                <%= button_to "Delete", [@feed, comment], { method: :delete, class: "btn btn-danger btn-sm" } %>
+            </div>
+        <% else %>
+            <div class="col-2"></div>
+        <% end %>
     </li>
     <br />
     <% end %>
 </ul>
+<br />
+<hr />
 <br />
 <div>
     <%= render "comments/form" %>

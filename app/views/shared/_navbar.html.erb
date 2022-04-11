@@ -31,7 +31,5 @@
     <br>
   </ul>
   <hr>
-  <a href="/" class="d-flex text-white text-decoration-none">
-    <span class="fs-5 mx-auto btn btn-sm btn-light">Sign out</span>
-  </a>
+  <%= button_to "Sign out", sign_out_path, method: :delete, class: "fs-5 mx-auto btn btn-sm btn-light" %>
 </div>

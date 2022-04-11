@@ -23,6 +23,21 @@
   </head>
 
   <body class="col-12 d-flex">
+    <% unless current_page?(root_path) || current_page?(sign_in_path) || current_page?(sign_up_path) %>
+      <%= render "shared/navbar" %>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="alert alert-success alert-dismissible fade show position-fixed col-12 text-center" style="z-index: 100;">
+        <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger alert-dismissible fade show position-fixed col-12 text-center" style="z-index: 100;">
+        <%= flash[:alert] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<ul class="list-group px-lg-5">
+<ul class="col-10 list-group">
   <% @feeds.each_with_index do |post, index| %>
     <li class="list-group-item border border-dark p-0 shadow rounded">
         <div class="d-flex border-bottom border-dark m-0 p-2 text-start">
@@ -6,7 +6,7 @@
             <div class="ps-4">
                 <span class="fw-bold">
                     <% user = get_user post.user_id %>
-                    <%= user.fname + " " + user.lname %>
+                    <%= user.first_name + " " + user.last_name %>
                 </span>
                 <br />
                 <span class="text-muted">

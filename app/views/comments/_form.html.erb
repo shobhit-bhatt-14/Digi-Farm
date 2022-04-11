@@ -1,16 +1,11 @@
 <div class="col-12">
     <% postMake = defined?(post) ? post : @feed %>
-    <%= form_for([postMake, postMake.comments.build], html: { class: "d-flex justify-content-between align-items-end" }) do |form| %>
-        <div class="text-start">
-            <%= form.label :user_id, class: "form-label ms-1" %><br>
-            <%= form.select :user_id, options_for_select(@users.collect{ |u| [u.fname, u.id] }, 1), {}, { class: "form-select border-secondary" } %>
+    <%= form_for([postMake, postMake.comments.build], html: { class: "d-flex justify-content-between" }) do |form| %>
+        <%= form.hidden_field :user_id, value: Current.user.id %>
+        <div class="text-start col-9">
+            <!-- <%= form.label :content, class: "form-label ms-1" %><br> -->
+            <%= form.text_field :content, class: "form-control border-secondary", placeholder: "Add your comment ..." %>
         </div>
-        <br />
-        <div class="text-start">
-            <%= form.label :content, class: "form-label ms-1" %><br>
-            <%= form.text_area :content, rows: 1, cols: 50, class: "form-control border-secondary", placeholder: "Add your comment ..." %>
-        </div>
-        <br />
         <div>
             <%= form.submit "Submit", class: "btn btn-primary fw-bold" %>
         </div>

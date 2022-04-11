@@ -1,7 +1,6 @@
 class DiscussionsController < ApplicationController
   def index
     @regions = Region.all
-    @users = User.all
 
     if (params[:region_id] && discussions = Discussion.where(region_id: params[:region_id]))
       @discussions = discussions
@@ -17,10 +16,6 @@ class DiscussionsController < ApplicationController
   def show
     @discussion = Discussion.find(params[:id])
     @regions = Region.all
-    @users = User.all
-
-    @location = @discussion.region_id
-    # Array.wrap()
   end
 
   def new
