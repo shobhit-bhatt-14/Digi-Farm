@@ -1,7 +1,9 @@
 class WelcomesController < ApplicationController
 
     def index
-        @user = User.new
+        if session[:user_id]
+            @user = User.find(session[:user_id])
+        end
     end
 
     def check
@@ -14,7 +16,8 @@ class WelcomesController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
+        if @user.
+            session[:user_id] = @user.id
             redirect_to root_path, notice: "Registration successful"
         else
             render :new
