@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root to: "main#index"
+  root to: "welcomes#index"
 
-  get "sign_up", to: "registrations#new"
-  post "sign_up", to:"registrations#create"
+  post "/", to: "welcomes#check"
+  get "sign_up", to: "welcomes#new"
+  post "sign_up", to:"welcomes#create"
 
   resources :feeds do
     resources :comments

@@ -1,0 +1,45 @@
+<div class="col-12 d-flex p-5 h-100 align-items-center justify-content-evenly">
+    <div class="col-12 col-md-5 d-flex justify-content-center">
+        <%= image_tag "main.jpg", size: 500, alt: "farmer with crops" %>
+    </div>
+    <div class="col-12 col-md-5 p-3 text-start border border-2 rounded-3 bg-warning">
+        <p class="fs-3">&nbsp;Welcome Back,</p>
+        <hr />
+        <br />
+        <%= form_with model: @user, url: root_path do |form| %>
+            <div class="mb-3 d-flex">
+                <div class="me-3 col">
+                    &nbsp;<%= form.label :first_name, "First Name", class: "form-label" %>
+                    <%= form.text_field :first_name, placeholder: "Enter your first name", class: "form-control" %>
+                </div>
+                <div class="ms-3 col">
+                    &nbsp;<%= form.label :last_name, "Last Name", class: "form-label" %>
+                    <%= form.text_field :last_name, placeholder: "Enter your last name", class: "form-control" %>
+                </div>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="me-3 col">
+                    &nbsp;<%= form.label :phone, class: "form-label" %>
+                    <%= form.text_field :phone, placeholder: "Enter your phone number", class: "form-control" %>
+                </div>
+                <div class="ms-3 col">
+                    &nbsp;<%= form.label :email, class: "form-label" %>
+                    <%= form.text_field :email, placeholder: "Enter your email", class: "form-control" %>
+                </div>
+            </div>
+            <div class="mb-3 d-flex">
+                <div class="me-3 col">
+                    &nbsp;<%= form.label :password, class: "form-label" %>
+                    <%= form.password_field :password, placeholder: "Enter your password", class: "form-control" %>
+                </div>
+                <div class="ms-3 col">
+                    &nbsp;<%= form.label :password_confirmation, "Confirm Password", class: "form-label" %>
+                    <%= form.password_field :password_confirmation, placeholder: "Confirm your password", class: "form-control" %>
+                </div>
+            </div>
+            <div class="mt-5 mb-3 text-center">
+                <%= form.submit "Let's Begin", class: "btn btn-lg btn-primary fst-normal" %>
+            </div>
+        <% end %>
+    </div>
+</div>

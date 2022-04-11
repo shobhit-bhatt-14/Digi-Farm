@@ -82,8 +82,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_084920) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
+    t.string "first_name"
+    t.string "last_name"
     t.integer "phone"
     t.integer "count", default: 0
     t.datetime "created_at", null: false
