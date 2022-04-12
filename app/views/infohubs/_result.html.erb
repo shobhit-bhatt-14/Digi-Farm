@@ -1,3 +1,5 @@
-<div class="h5 col-8 text-center border border-success py-2 border-2 rounded">
-    <%= @result.value %>
-</div>
+<% if result %>
+    <%= result.value %>
+<% else %>
+    ---
+<% end %>

@@ -1,4 +1,4 @@
-<%= form_with scope: "infohub", url: infohub_path, html: { class: "d-flex flex-wrap justify-content-around mx-auto" }, remote: true do |f| %>
+<%= form_with model: @crop_production, url: infohub_path, html: { class: "d-flex flex-wrap justify-content-around mx-auto" }, local: false do |f| %>
     <div class="text-start col-5">
         <%= f.label :year_id, class: "form-label ms-1" %><br>
         <%= f.select :year_id, options_for_select(@years.collect{ |y| [y.year, y.id] }), {}, { class: "form-select border-secondary" } %>

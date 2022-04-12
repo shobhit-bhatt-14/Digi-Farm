@@ -1,19 +1,23 @@
-<div class="row d-flex justify-content-around">
-    <div class="col-8 my-5 px-lg-5 text-start">
-        <p class="h4 fw-bold">Info Hub</p>
+<div class="col-3"></div>
+<div class="col-9 d-flex justify-content-around">
+    <div class="col-8 my-5 px-5 text-start">
+        <p class="fs-4 fw-bold">Info Hub</p>
         <br />
-        <p class="border border-secondary border-3 rounded p-2 mb-0 fw-bold">Production</p>
+        <p class="border border-secondary border-3 rounded p-2 mb-0 fs-5 fw-bold text-uppercase text-decoration-underline text-center">Production</p>
         <div class="border border-secondary border-3 rounded p-2 mt-0">
             <%= render "infohubs/form" %>
             <br />
             <br />
             <div id="display-value" class="d-flex flex-column align-items-center justify-content-center">
                 <p class="fs-4 text-decoration-underline">Result</p>
-                <%= render "infohubs/result" %>
+                <div class="fs-5 col-8 text-center border border-success py-2 border-2 rounded bg-dark text-white" id="production-result">
+                    <%= render partial: "infohubs/result", locals: {result: @result} %>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-3 border border-dark border-3 me-1 py-5 rounded position-fixed" style="height: 100% !important; top: 0; right: 0; overflow-y: scroll !important;">
+    <div class="col-4"></div>
+    <div class="col-3 border-start border-dark border-3 py-2 px-3 position-fixed" style="height: 100% !important; top: 0; right: 0; overflow-y: scroll !important;">
         <%= render "infohubs/sidebar" %>
     </div>
 </div>

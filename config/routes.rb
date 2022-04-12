@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :regions
   end
 
-  resource :infohub
+  get "infohub", to: "infohubs#show"
+  post "infohub", to: "infohubs#create"
+
   resources :profiles
 end

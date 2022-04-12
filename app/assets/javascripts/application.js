@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 
+global.$ = jQuery;
+
 function openCommentForm(i) {
   document.getElementById(`comment-form-${i}`).classList.toggle("hide");
   document.getElementById(`comment-button-${i}`).classList.toggle("active");
