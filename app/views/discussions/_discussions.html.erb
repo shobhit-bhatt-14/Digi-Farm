@@ -1,8 +1,10 @@
-<ul class="list-group px-lg-5">
-  <% @discussions.each do |discussion| %>
-  <li class="list-group-item border-2 border-dark text-start rounded shadow">
-    ❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %>
-  </li>
-  <br />
-  <% end %>
-</ul>
+<% if discussions %>
+  <ul class="list-group px-lg-5">
+    <% discussions.each do |discussion| %>
+    <li class="list-group-item border-2 border-dark text-start rounded shadow">
+      ❇️&emsp;<%= link_to discussion.content, discussion, class: "text-decoration-none" %>
+    </li>
+    <br />
+    <% end %>
+  </ul>
+<% end %>

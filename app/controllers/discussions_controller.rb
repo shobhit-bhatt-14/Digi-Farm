@@ -8,9 +8,9 @@ class DiscussionsController < ApplicationController
       @discussions = Discussion.all
     end
 
-    respond_to do |format|
-      format.html { render discussions }
-    end
+    # respond_to do |format|
+    #   format.html { render partial: "discussions/discussions", locals: {discussions: @discussions} }
+    # end
   end
 
   def show
@@ -23,24 +23,32 @@ class DiscussionsController < ApplicationController
   end
 
   def create
-    @discussion = Discussion.new(discussion_params)
+    if params[:content].present?
+      @discussion = Discussion.new(discussion_params)
 
-    if @discussion.save
-      redirect_to discussion_path(@discussion)
+      if @discussion.save
+        redirect_to discussion_path(@discussion)
+      end
+    else
+      @discussions = Discussion.where(region_id: params[:region_id])
+
+      respond_to do |format|
+        format.js {render layout: false}
+      end
     end
   end
 
-  def edit
-    @discussion = Discussion.find(params[:id])
-  end
+  # def edit
+  #   @discussion = Discussion.find(params[:id])
+  # end
 
-  def update
-    @discussion = Discussion.find(params[:id])
+  # def update
+  #   @discussion = Discussion.find(params[:id])
 
-    if @discussion.update
-      redirect_to discussion_path(@discussion)
-    end
-  end
+  #   if @discussion.update
+  #     redirect_to discussion_path(@discussion)
+  #   end
+  # end
 
   def destroy
     @discussion = Discussion.find(params[:id])

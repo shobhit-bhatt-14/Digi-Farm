@@ -5,7 +5,7 @@
     <br>
     <div class="text-start">
         <%= form.label :region_id, class: "form-label ms-1" %><br>
-        <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, 35), {}, { class: "form-select border-secondary" } %>
+        <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }), { include_blank: "—— select ——" }, { class: "form-select border-secondary" } %>
     </div>
     <br>
     <div class="text-start">

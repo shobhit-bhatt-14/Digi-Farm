@@ -1,11 +1,11 @@
 <%= form_with model: @crop_production, url: infohub_path, html: { class: "d-flex flex-wrap justify-content-around mx-auto" }, local: false do |f| %>
     <div class="text-start col-5">
         <%= f.label :year_id, class: "form-label ms-1" %><br>
-        <%= f.select :year_id, options_for_select(@years.collect{ |y| [y.year, y.id] }), {}, { class: "form-select border-secondary" } %>
+        <%= f.select :year_id, options_for_select(@years.collect{ |y| [y.year, y.id] }), { include_blank: "—— select ——" }, { class: "form-select border-secondary text-center" } %>
     </div>
     <div class="text-start col-5">
         <%= f.label :crop_id, class: "form-label ms-1" %><br>
-        <%= f.select :crop_id, options_for_select(@crops.collect{ |c| [c.name, c.id] }), {}, { class: "form-select border-secondary" } %>
+        <%= f.select :crop_id, options_for_select(@crops.collect{ |c| [c.name, c.id] }), { include_blank: "—— select ——" }, { class: "form-select border-secondary text-center" } %>
     </div>
     <div class="col-3 mt-4 mx-auto text-center">
         <%= f.submit "Get Details", class: "btn btn-primary fw-bold" %>
