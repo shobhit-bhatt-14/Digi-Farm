@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_many :discussions
     has_many :posts
 
+    belongs_to :region
+
     has_secure_password
     validates :first_name, presence: true
     validates :last_name, presence: true

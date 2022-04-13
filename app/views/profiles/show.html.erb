@@ -10,20 +10,23 @@
         <div>
             <%= image_tag "#{@person.id}.png", size: "150", class: "rounded-circle" %>
         </div>
-        <div class="border border-3 border-secondary rounded p-3 shadow d-flex">
-            <div class="">
-                <p>Name &emsp;</p>
-                <p>Place &emsp;</p>
-                <p>Favoutite plant/crop &emsp;</p>
+        <div class="border border-3 border-secondary rounded p-5 shadow">
+            <div class="d-flex">
+                <div class="">
+                    <p>Name &emsp;</p>
+                    <p>Place &emsp;</p>
+                    <p>Favourite Plant &emsp;</p>
+                </div>
+                <div class="">
+                    <p> : &emsp; <%= @person.first_name + " " + @person.last_name %> </p>
+                    <p> : &emsp; <%= @place %> </p>
+                    <p> : &emsp; <%= @person.fav_plant %> </p>
+                </div>
             </div>
-            <div class="">
-                <p> : &emsp; <%= @person.first_name + " " + @person.last_name %> </p>
-                <p> : &emsp; Uttarakhand </p>
-                <p> : &emsp; Pineapple </p>
+            <br />
+            <div class="text-center" id="connect-button">
+                <%= render partial: "profiles/connect", locals: {val: @val} %>
             </div>
-        </div>
-        <div>
         </div>
     </div>
 </div>
-

@@ -10,17 +10,17 @@
         <div>
             <%= image_tag "#{Current.user.id}.png", size: "150", class: "rounded-circle" %>
         </div>
-        <div class="border border-3 border-secondary rounded p-3 shadow">
+        <div class="border border-3 border-secondary rounded p-5 shadow">
             <div class="d-flex">
                 <div class="">
                     <p>Name &emsp;</p>
                     <p>Place &emsp;</p>
-                    <p>Favoutite plant/crop &emsp;</p>
+                    <p>Favoutite Plant &emsp;</p>
                 </div>
                 <div class="">
                     <p> : &emsp; <%= Current.user.first_name + " " + Current.user.last_name %> </p>
-                    <p> : &emsp; Uttarakhand </p>
-                    <p> : &emsp; Pineapple </p>
+                    <p> : &emsp; <%= @place %> </p>
+                    <p> : &emsp; <%= Current.user.fav_plant %> </p>
                 </div>
             </div>
             <br />

@@ -1,3 +1,4 @@
 class Region < ApplicationRecord
-  belongs_to :discussion
+  has_many :discussions
+  has_many :users
 end

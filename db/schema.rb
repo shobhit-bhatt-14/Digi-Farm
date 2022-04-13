@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_08_084920) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_13_100936) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -90,6 +90,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_084920) do
     t.datetime "updated_at", null: false
     t.string "email", null: false
     t.string "password_digest"
+    t.string "fav_plant"
+    t.integer "region_id"
+    t.index ["region_id"], name: "index_users_on_region_id"
   end
 
   create_table "years", force: :cascade do |t|
@@ -108,4 +111,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_084920) do
   add_foreign_key "discussions", "regions"
   add_foreign_key "discussions", "users"
   add_foreign_key "feeds", "users"
+  add_foreign_key "users", "regions"
 end

@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   post "infohub", to: "infohubs#create"
 
   get "profile", to: "profiles#index"
+
   get "profile/:id", to: "profiles#show"
+  post "profile/:id", to: "profiles#create"
 end
