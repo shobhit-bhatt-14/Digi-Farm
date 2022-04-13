@@ -1,0 +1,33 @@
+<div class="col-3"></div>
+<div class="col-9 py-5 d-flex justify-content-evenly">
+    <div class="col-6">
+        <%= render "profiles/connections" %>
+        <br />
+        <%= render "profiles/uploads" %>
+    </div>
+    <div class="col-5"></div>
+    <div class="col-4 position-fixed d-flex flex-column justify-content-evenly align-items-center border-start border-3 border-dark" style="height: 100% !important; right: 0; top: 0;">
+        <div>
+            <%= image_tag "#{Current.user.id}.png", size: "150", class: "rounded-circle" %>
+        </div>
+        <div class="border border-3 border-secondary rounded p-3 shadow">
+            <div class="d-flex">
+                <div class="">
+                    <p>Name &emsp;</p>
+                    <p>Place &emsp;</p>
+                    <p>Favoutite plant/crop &emsp;</p>
+                </div>
+                <div class="">
+                    <p> : &emsp; <%= Current.user.first_name + " " + Current.user.last_name %> </p>
+                    <p> : &emsp; Uttarakhand </p>
+                    <p> : &emsp; Pineapple </p>
+                </div>
+            </div>
+            <br />
+            <div class="text-center">
+                <%= button_to "Edit Profile", profile_path, class: "btn btn-primary" %>
+            </div>
+        </div>
+    </div>
+</div>
+

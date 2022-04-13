@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   get "infohub", to: "infohubs#show"
   post "infohub", to: "infohubs#create"
 
-  resource :profile
+  get "profile", to: "profiles#index"
+  get "profile/:id", to: "profiles#show"
 end

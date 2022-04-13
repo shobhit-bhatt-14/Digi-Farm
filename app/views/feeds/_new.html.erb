@@ -1,10 +1,9 @@
 <div class="col-10 border border-dark rounded shadow py-3">
     <div class="fs-5 fw-bold text-center">New Post</div>
     <hr />
-    <%= form_with model: @feed, class: "d-flex justify-content-evenly" do |form| %>
+    <%= form_with model: @feed, class: "d-flex justify-content-evenly align-items-center" do |form| %>
         <%= form.hidden_field :user_id, value: Current.user.id %>
         <div class="text-start">
-            <!-- <%= form.label :content, class: "form-label ms-1" %><br> -->
             <%= form.text_area :content, rows: 3, cols: 50, class: "form-control border-secondary", placeholder: "Type here  ..." %>
         </div>
         <div>

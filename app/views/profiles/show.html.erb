@@ -1,17 +1,28 @@
 <div class="col-3"></div>
-<div class="col-9">
-    <div class="col-9 d-flex">
-
+<div class="col-9 py-5 d-flex justify-content-evenly">
+    <div class="col-6">
+        <%= render "profiles/connections" %>
+        <br />
+        <%= render "profiles/uploads" %>
     </div>
-    <div class="col-3"></div>
-    <div class="col-3 position-fixed d-flex flex-column justify-content-evenly align-items-center" style="height: 100% !important; right: 0; top: 0;">
+    <div class="col-5"></div>
+    <div class="col-4 position-fixed d-flex flex-column justify-content-evenly align-items-center border-start border-3 border-dark" style="height: 100% !important; right: 0; top: 0;">
         <div>
-            <%= image_tag("shobhit.jpg", size: "200", class: "rounded-circle") %>
+            <%= image_tag "#{@person.id}.png", size: "150", class: "rounded-circle" %>
         </div>
-        <div class="border rounded">
-            <p>Name : </p>
-            <p>Name : </p>
-            <p>Name : </p>
+        <div class="border border-3 border-secondary rounded p-3 shadow d-flex">
+            <div class="">
+                <p>Name &emsp;</p>
+                <p>Place &emsp;</p>
+                <p>Favoutite plant/crop &emsp;</p>
+            </div>
+            <div class="">
+                <p> : &emsp; <%= @person.first_name + " " + @person.last_name %> </p>
+                <p> : &emsp; Uttarakhand </p>
+                <p> : &emsp; Pineapple </p>
+            </div>
+        </div>
+        <div>
         </div>
     </div>
 </div>

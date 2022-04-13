@@ -2,7 +2,7 @@
   <% @feeds.each_with_index do |post, index| %>
     <li class="list-group-item border border-dark p-0 shadow rounded">
         <div class="d-flex border-bottom border-dark m-0 p-2 text-start">
-            <%= image_tag("shobhit.jpg", size: "50", class: "rounded-circle") %>
+            <%= image_tag("#{post.user_id}.png", size: "50", class: "rounded-circle") %>
             <div class="ps-4">
                 <span class="fw-bold">
                     <% user = get_user post.user_id %>

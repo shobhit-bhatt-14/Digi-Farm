@@ -1,0 +1,16 @@
+<div class="border border-2 border-secondary rounded shadow">
+    <p class="fs-5 fw-bold p-2 border-bottom border-2 border-secondary"> &emsp; Connections</p>
+    <div class="d-flex justify-content-center">
+        <ul class="col-10 list-group">
+        <% @connections.each do |con| %>
+            <li class="list-group-item border border-dark p-0 shadow rounded d-flex py-2 px-3">
+                <%= image_tag "#{con.person}.png", size: "50", class: "rounded-circle" %>
+                <%= link_to "/profile/#{con.person}", class: "p-2 text-decoration-none" do %>
+                    &emsp; <%= get_user(con.person).first_name + " " + get_user(con.person).last_name %>
+                <% end %>
+            </li>
+            <br />
+        <% end %>
+        </ul>          
+    </div>
+</div>
