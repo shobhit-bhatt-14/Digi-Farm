@@ -1,5 +1,5 @@
 <% if val %>
-    <%= button_to "Connected", "/profile/#{@person.id}", local: false, class: "btn btn-success disabled" %>
+    <%= button_to "Connected", "/profile/#{@person.id}", class: "btn btn-success disabled" %>
 <% else %>
     <%= button_to "Connect", "/profile/#{@person.id}", local: false, class: "btn btn-primary" %>
 <% end %>

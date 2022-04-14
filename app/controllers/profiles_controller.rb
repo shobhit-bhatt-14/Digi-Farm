@@ -31,8 +31,28 @@ class ProfilesController < ApplicationController
       @val = true
     end
 
-    respond_to do |format|
-      format.js
+    redirect_to request.path
+  end
+
+  def edit
+    @connections = Connection.where(user_id: Current.user.id)
+
+    @feeds = Feed.where(user_id: Current.user.id).order("created_at DESC")
+
+    @regions = Region.all
+    
+    @user = Current.user
+  end
+
+  def update
+    @user = User.find_by(id: Current.user.id)
+
+    if @user.update(user_params)
+      redirect_to "/profile"
     end
+  end
+
+  private def user_params
+    params.require(:user).permit(:first_name, :last_name, :region_id, :fav_plant)
   end
 end

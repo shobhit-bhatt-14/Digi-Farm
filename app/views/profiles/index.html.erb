@@ -15,7 +15,7 @@
                 <div class="">
                     <p>Name &emsp;</p>
                     <p>Place &emsp;</p>
-                    <p>Favoutite Plant &emsp;</p>
+                    <p>Favourite Plant &emsp;</p>
                 </div>
                 <div class="">
                     <p> : &emsp; <%= Current.user.first_name + " " + Current.user.last_name %> </p>
@@ -25,7 +25,7 @@
             </div>
             <br />
             <div class="text-center">
-                <%= button_to "Edit Profile", profile_path, class: "btn btn-primary" %>
+                <%= link_to "Edit Profile", "/profile/edit", class: "btn btn-primary" %>
             </div>
         </div>
     </div>

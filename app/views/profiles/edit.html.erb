@@ -1,0 +1,41 @@
+<div class="col-3"></div>
+<div class="col-9 py-5 d-flex justify-content-evenly">
+    <div class="col-6">
+        <%= render "profiles/connections" %>
+        <br />
+        <%= render "profiles/uploads" %>
+    </div>
+    <div class="col-5"></div>
+    <div class="col-4 position-fixed d-flex flex-column justify-content-evenly align-items-center border-start border-3 border-dark" style="height: 100% !important; right: 0; top: 0;">
+        <div>
+            <%= image_tag "#{Current.user.id}.png", size: "150", class: "rounded-circle" %>
+        </div>
+        <div class="border border-3 border-secondary rounded mx-5 p-3 shadow">
+            <%= form_with model: @user, url: "/profile/edit", method: :patch do |form| %>
+                <div class="mb-3 d-flex">
+                    <div class="col">
+                        &nbsp;<%= form.label :first_name, "First Name", class: "form-label" %>
+                        <%= form.text_field :first_name, placeholder: "Enter your first name", class: "form-control" %>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col">
+                        &nbsp;<%= form.label :last_name, "Last Name", class: "form-label" %>
+                        <%= form.text_field :last_name, placeholder: "Enter your last name", class: "form-control" %>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    &nbsp;<%= form.label :region_id, "Place", class: "form-label" %>
+                    <%= form.select :region_id, options_for_select(@regions.collect{ |r| [r.name, r.id] }, Current.user.region_id), {}, { class: "form-select" } %>
+                </div>
+                <div class="mb-3">
+                    &nbsp;<%= form.label :fav_plant, "Favourite Plant", class: "form-label" %>
+                    <%= form.text_field :fav_plant, placeholder: "Enter your favourite plant", class: "form-control" %>
+                </div>
+                <div class="mt-5 mb-3 text-center">
+                    <%= form.submit "Save", class: "btn btn-success" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
