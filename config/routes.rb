@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :notifications
+  
   resources :messages
 
   resources :discussions do
