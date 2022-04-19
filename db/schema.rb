@@ -39,17 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
-  create_table "conversations", force: :cascade do |t|
-    t.string "name"
-    t.boolean "is_private", default: false
-    t.integer "sender_id", null: false
-    t.integer "receiver_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
-    t.index ["sender_id"], name: "index_conversations_on_sender_id"
-  end
-
   create_table "crop_productions", force: :cascade do |t|
     t.float "value"
     t.integer "crop_id", null: false
@@ -87,11 +76,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.string "name"
     t.text "content"
-    t.integer "conversation_id", null: false
+    t.boolean "is_private", default: false
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "regions", force: :cascade do |t|
@@ -125,13 +118,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
   add_foreign_key "comments", "feeds"
   add_foreign_key "comments", "users"
   add_foreign_key "connections", "users"
-  add_foreign_key "conversations", "users", column: "receiver_id"
-  add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "crop_productions", "crops"
   add_foreign_key "crop_productions", "years"
   add_foreign_key "discussions", "regions"
   add_foreign_key "discussions", "users"
   add_foreign_key "feeds", "users"
-  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "users", "regions"
 end

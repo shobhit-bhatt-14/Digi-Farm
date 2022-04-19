@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 
+import "@hotwired/turbo-rails"
+
 function openCommentForm(i) {
   document.getElementById(`comment-form-${i}`).classList.toggle("hide");
   document.getElementById(`comment-button-${i}`).classList.toggle("active");
