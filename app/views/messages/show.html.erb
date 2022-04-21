@@ -1,0 +1,19 @@
+<div class="col-3"></div>
+<div class="col-9 d-flex">
+    <div class="col-8 py-5">
+        <div class="fixed-top col-6 mx-auto bg-light border-bottom py-3 border-2 border-secondary d-flex justify-content-center align-items-center">
+            <%= image_tag "#{params[:id]}.png", size: "50", class: "rounded-circle" %>
+            <%= link_to "#{get_user(params[:id]).first_name} #{get_user(params[:id]).last_name}", "#{profile_path}/#{params[:id]}", class: "text-decoration-none ps-3" %>
+        </div>
+        <div class="my-5">
+            <%= render "messages/messages" %>
+        </div>
+        <div class="fixed-bottom d-flex justify-content-center">
+            <%= render "messages/new" %>
+        </div>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-3 border-3 border-start border-dark position-fixed p-5 text-center" style="height: 100% !important; top: 0; right:0;">
+        <%= render "messages/sidebar" %>
+    </div>
+</div>

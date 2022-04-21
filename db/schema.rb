@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_21_064207) do
   create_table "answers", force: :cascade do |t|
     t.text "content"
     t.integer "user_id", null: false
@@ -75,9 +75,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
+  create_table "message_values", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.integer "message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_message_values_on_message_id"
+    t.index ["user_id"], name: "index_message_values_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "name"
-    t.text "content"
     t.boolean "is_private", default: false
     t.integer "sender_id", null: false
     t.integer "receiver_id", null: false
@@ -123,6 +132,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_114936) do
   add_foreign_key "discussions", "regions"
   add_foreign_key "discussions", "users"
   add_foreign_key "feeds", "users"
+  add_foreign_key "message_values", "messages"
+  add_foreign_key "message_values", "users"
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "users", "regions"

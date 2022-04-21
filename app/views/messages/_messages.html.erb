@@ -1,3 +1,11 @@
-<div>
-    <% # link_to message.name, message %>
+<%= turbo_stream_from "message_values" %>
+<div id="message_values" class="d-flex justify-content-center">
+    <ul class="list-group col-8">
+    <% @message_values.each do |message| %>
+        <li class="mw-70 list-group-item text-start text-white rounded shadow d-flex align-items-center <%= message.user_id == Current.user.id ? 'ms-auto bg-primary' : 'me-auto bg-secondary' %>">
+            <%= message.content %>
+        </li>
+        <br />
+    <% end %>
+    </ul>
 </div>

@@ -1,8 +1,10 @@
-<p class="fs-4 my-4 fw-bold">Online</p>
-<ul class="list-group">
-    <li class="list-group-item border-2 border-secondary text-start rounded">A</li>
-    <li class="list-group-item border-2 border-secondary text-start rounded">B</li>
-    <li class="list-group-item border-2 border-secondary text-start rounded">C</li>
-    <li class="list-group-item border-2 border-secondary text-start rounded">D</li>
-    <li class="list-group-item border-2 border-secondary text-start rounded">E</li>
-</ul>
+<p class="fs-4 my-4 fw-bold">Connections</p>
+<% @persons.each do |person| %>
+    <ul class="list-group">
+        <li class="list-group-item border-2 border-secondary text-start rounded shadow d-flex align-items-center">
+            <%= image_tag "#{person.user_id}.png", size: "35", class: "rounded-circle" %>
+            <%= link_to "#{get_user(person.user_id).first_name} #{get_user(person.user_id).last_name}", message_path(person.user_id), class: "text-decoration-none ps-3" %>
+        </li>
+        <br />
+    </ul>
+<% end %>

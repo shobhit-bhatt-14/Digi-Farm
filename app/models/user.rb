@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
     has_many :sender, class_name: "Message"
     has_many :receiver, class_name: "Message"
+    has_many :message_values
 
     belongs_to :region
 
@@ -13,5 +14,5 @@ class User < ApplicationRecord
     validates :last_name, presence: true
     validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be valid email address" }
 
-    # after_create_commit { broadcast_append_to "users" }
+    
 end

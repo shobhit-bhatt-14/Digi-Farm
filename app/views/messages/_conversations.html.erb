@@ -1,15 +1,11 @@
 <div class="d-flex justify-content-center">
     <ul class="list-group col-8">
-        <li class="list-group-item border-2 border-dark text-start rounded">A</li>
+    <% @conversations.each do |convo| %>
+        <li class="list-group-item border-2 border-secondary text-start rounded shadow d-flex align-items-center">
+            <%= image_tag "#{convo.receiver_id}.png", size: "35", class: "rounded-circle" %>
+            <%= link_to "#{get_user(convo.receiver_id).first_name} #{get_user(convo.receiver_id).last_name}", "messages/#{convo.receiver_id}", class: "text-decoration-none ps-3" %>
+        </li>
         <br />
-        <li class="list-group-item border-2 border-dark text-start rounded">B</li>
-        <br />
-        <li class="list-group-item border-2 border-dark text-start rounded">C</li>
-        <br />
-        <li class="list-group-item border-2 border-dark text-start rounded">D</li>
-        <br />
-        <li class="list-group-item border-2 border-dark text-start rounded">E</li>
-        <br />
-        <li class="list-group-item border-2 border-dark text-start rounded">F</li>
+    <% end %>
     </ul>
 </div>
